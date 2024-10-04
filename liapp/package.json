@@ -1,0 +1,22 @@
+{
+  "name": "liapp",
+  "version": "1.0.0",
+  "main": "liapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MichaelDavisLiatrioInterview/Interview_Exercise.git"
+  },
+  "author": "Michael Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelDavisLiatrioInterview/Interview_Exercise/issues"
+  },
+  "homepage": "https://github.com/MichaelDavisLiatrioInterview/Interview_Exercise#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
