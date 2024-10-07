@@ -2,9 +2,9 @@ name: Liapp Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "docker_image_ci" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "docker_image_ci" ]
 
 jobs:
 
@@ -26,5 +26,5 @@ jobs:
     - name: push the docker image
       id: push-docker-image
       run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liapp:interview
-    #- name: run tests
-    #  uses: liatrio/github-actions/apprentice-action@master
+    - name: run tests
+      uses: liatrio/github-actions/apprentice-action@master
