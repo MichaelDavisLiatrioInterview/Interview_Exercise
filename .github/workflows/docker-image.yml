@@ -26,6 +26,7 @@ jobs:
     - name: push the docker image
       id: push-docker-image
       run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liapp:interview
+    - name: Docker compose
+      run: docker-compose up -d
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@master
-      run: docker run -p 80:80 ${{secrets.DOCKERHUB_USERNAME}}/liapp:interview
