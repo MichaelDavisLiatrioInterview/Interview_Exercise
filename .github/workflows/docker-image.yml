@@ -22,9 +22,9 @@ jobs:
       run: |
         docker login -u $username -p $password
     - name: Build the Docker image
-      run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liapp:$(date +%s)
+      run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liapp:interview
     - name: push the docker image
       id: push-docker-image
-      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liapp:$(date +%s)
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liapp:interview
     #- name: run tests
     #  uses: liatrio/github-actions/apprentice-action@master
