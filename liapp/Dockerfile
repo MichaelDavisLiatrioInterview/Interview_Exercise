@@ -17,7 +17,7 @@ RUN npm install
 COPY . /liapp
 
 
-EXPOSE 80
+EXPOSE 8080
 
 
 CMD [ "node", "liapp.js" ]
