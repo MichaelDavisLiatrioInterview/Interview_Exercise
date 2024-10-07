@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
   // Get current timestamp. Date().getTime returns current timestamp in milliseconds since
   // January 1, 1970 (Unix epoch - starting point for measuring time in Unix systems).
-  // Gives time Dynamically
+  // Gives time Dynamically, creates new timestamp everytime window is refreshed
   const timestamp = new Date().getTime();
 
   // Message object created inside route handler.

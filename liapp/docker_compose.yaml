@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+
+  node-application:
+    web:
+      build: .
+      contaiiner_name: liapp-exercise
+      ports:
+        - "3000:3000"
+      volumes:
+        - .:/liapp
+      command: node liapp.js
+      restart: always
