@@ -1,5 +1,5 @@
 
-FROM node
+FROM node:20
 
 
 ENV NODE_ENV=development
