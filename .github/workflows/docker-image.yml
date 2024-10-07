@@ -21,10 +21,10 @@ jobs:
         password: ${{secrets.DOCKERHUB_PASSWORD}}
       run: |
         docker login -u $username -p $password
+    - name: run tests
+      uses: liatrio/github-actions/apprentice-action@master
     - name: Build the Docker image
       run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liapp:interview
-    - name: run tests
-      run: docker run miked7676/liapp:interview liatrio/github-actions/apprentice-action@master
     - name: push the docker image
       id: push-docker-image
       run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liapp:interview
