@@ -25,7 +25,7 @@ jobs:
       run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liapp:interview
     - name: start server
       run:
-        docker run -d -p 8080:80 miked7676/liapp:interview
+        docker run -d -p 80:8080 miked7676/liapp:interview
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@master
     - name: push the docker image
