@@ -31,9 +31,9 @@ app.get('/', (req, res) => {
   res.send(message)
 })
 
-// listen for incoming requests on port (3000).
+// listen for incoming requests on port (80).
 app.listen(port, () => {
   // message below is shown on console to show that server has started successfully
   // and is ready to handle requests
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Liapp listening on port ${port}`)
 })

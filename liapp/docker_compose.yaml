@@ -4,10 +4,10 @@ services:
   node-application:
     web:
       build: .
-      contaiiner_name: liapp-exercise
+      contaiiner_name: liapp
       ports:
-        - "3000:3000"
+        - "80:80"
       volumes:
-        - .:/liapp
+        - .
       command: node liapp.js
       restart: always
