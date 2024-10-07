@@ -8,8 +8,8 @@ const express = require('express')
 const app = express()
 
 
-// Sets the port number to 3000. Server will listen here for incoming requests
-const port = 3000
+// Sets the port number to 80. Server will listen here for incoming requests
+const port = 80
 
 
 // Defines route handler for HTTP GET requests made to root URL '/'
