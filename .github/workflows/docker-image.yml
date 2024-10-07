@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build ./liapp --file ./liapp/Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build -t liapp ./liapp --file ./liapp/Dockerfile --tag liapp:$(date +%s)
     - name: run tests
       uses: liatrio/github-actions/apprentice-action@master
