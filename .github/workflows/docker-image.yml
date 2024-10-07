@@ -14,7 +14,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: login to docker hub
+      id: docker-hub
+      env:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_PASSWORD}}
+      run: |
+        docker login -u $username -p $password
     - name: Build the Docker image
-      run: docker build -t liapp ./liapp --file ./liapp/Dockerfile --tag liapp:$(date +%s)
-    - name: run tests
-      uses: liatrio/github-actions/apprentice-action@master
+      run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liapp:$(date +%s)
+    - name: push the docker image
+      id: push-docker-image
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liapp:$(date +%s)
+    #- name: run tests
+    #  uses: liatrio/github-actions/apprentice-action@master
