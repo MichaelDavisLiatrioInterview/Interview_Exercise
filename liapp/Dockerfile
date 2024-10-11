@@ -1,5 +1,5 @@
 
-FROM node
+FROM node:20
 
 
 ENV NODE_ENV=development
@@ -17,7 +17,7 @@ RUN npm install
 COPY . /liapp
 
 
-EXPOSE 3000
+EXPOSE 80
 
 
 CMD [ "node", "liapp.js" ]
