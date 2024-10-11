@@ -8,8 +8,8 @@ const express = require('express')
 const app = express()
 
 
-// Sets the port number to 8080. Server will listen here for incoming requests
-const port = 8080
+// Sets the port number to 80. Server will listen here for incoming requests
+const port = 80
 
 
 // Defines route handler for HTTP GET requests made to root URL '/'
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.send(message)
 })
 
-// listen for incoming requests on port (8080).
+// listen for incoming requests on port (80).
 app.listen(port, () => {
   // message below is shown on console to show that server has started successfully
   // and is ready to handle requests
