@@ -3,15 +3,10 @@ name: Liapp Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
-
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v4
     - name: login to docker hub
@@ -22,11 +17,14 @@ jobs:
       run: |
         docker login -u $username -p $password
     - name: Build the Docker image
+      id: docker-image
       run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liapp:interview
-    - name: start server
+    - name: Run Container
+      id: docker-container
       run:
         docker run -d -p 80:80 miked7676/liapp:interview
     - name: run tests
+      id: liatrioctests
       uses: liatrio/github-actions/apprentice-action@master
     - name: push the docker image
       id: push-docker-image

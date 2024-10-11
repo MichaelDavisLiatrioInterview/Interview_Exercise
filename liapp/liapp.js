@@ -6,14 +6,37 @@ const express = require('express')
 // app represents the web application. Provides methods for defining routes
 // and handling requests
 const app = express()
+const app_cloud = express()
 
 
 // Sets the port number to 80. Server will listen here for incoming requests
 const port = 80
+const cloud_port = 8080
 
 
 // Defines route handler for HTTP GET requests made to root URL '/'
+// For port 80
 app.get('/', (req, res) => {
+  
+  // Get current timestamp. Date().getTime returns current timestamp in milliseconds since
+  // January 1, 1970 (Unix epoch - starting point for measuring time in Unix systems).
+  // Gives time Dynamically, creates new timestamp everytime window is refreshed
+  const timestamp = new Date().getTime();
+  
+  // Message object created inside route handler.
+  const message =
+  {
+    "message": "My name is Michael Davis",
+    "timestamp": timestamp
+  }
+
+  const mini = JSON.stringify(message)
+
+  // sends message object as a response to the client. Sends object in JSON format by default
+  res.send(message)
+})
+
+app_cloud.get('/', (req, res) => {
   
   // Get current timestamp. Date().getTime returns current timestamp in milliseconds since
   // January 1, 1970 (Unix epoch - starting point for measuring time in Unix systems).
@@ -38,4 +61,9 @@ app.listen(port, () => {
   // message below is shown on console to show that server has started successfully
   // and is ready to handle requests
   console.log(`Liapp listening on port ${port}`)
+})
+
+app_cloud.listen(cloud_port, () => {
+  // same as app.listen function, except for port 8080
+  console.log(`Cloud server listening on port ${cloud_port}`)
 })

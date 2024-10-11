@@ -16,7 +16,7 @@ RUN npm install
 
 COPY . /liapp
 
-
+EXPOSE 80
 EXPOSE 8080
 
 
