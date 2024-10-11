@@ -22,7 +22,7 @@ jobs:
     - name: Run Container
       id: docker-container
       run:
-        docker run -d -p 80:80 miked7676/liapp:interview
+        docker run -d -p 80:8080 miked7676/liapp:interview
     - name: run tests
       id: liatrioctests
       uses: liatrio/github-actions/apprentice-action@master
