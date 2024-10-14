@@ -28,7 +28,7 @@ Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship progr
    * Add a GitHub Workflow which automatically deploys your application to the cloud platform when changes are made to the main branch of your repository
    * Add a field to the JSON output of your application and verify the change is deployed
 
-## Deployment on Google Cloud's Artifact Registry
-This application was containerized and deployed on [Google Cloud's Artifact Registry](https://cloud.google.com/artifact-registry/docs)<br>
+## Deployment onto Google Cloud
+This application was containerized and pushed onto [Google Cloud's Artifact Registry](https://cloud.google.com/artifact-registry/docs) then deployed using [Google Cloud Run](https://cloud.google.com/run?hl=en)<br>
 URL to the deployed application: [https://liatrio-interview-50186564575.us-west1.run.app/](https://liatrio-interview-50186564575.us-west1.run.app/)
 
