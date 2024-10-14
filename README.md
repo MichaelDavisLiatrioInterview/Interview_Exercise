@@ -1,7 +1,7 @@
 [![Liapp Docker Image CI](https://github.com/MichaelDavisLiatrioInterview/Interview_Exercise/actions/workflows/docker_actions.yml/badge.svg?branch=master)](https://github.com/MichaelDavisLiatrioInterview/Interview_Exercise/actions/workflows/docker_actions.yml)
 
 # Interview Exercise
-Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship program to show their capablities.
+Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship program to see how well the candidate will fit into their practice.
 
 ## Tasks:
 ### 1. Github Repository
@@ -29,6 +29,6 @@ Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship progr
    * Add a field to the JSON output of your application and verify the change is deployed
 
 ## Deployment on Google Cloud's Artifact Registry
-This application was containerized and deployed on [Google Cloud's Artifact Registry](https://cloud.google.com/artifact-registry/docs)
+This application was containerized and deployed on [Google Cloud's Artifact Registry](https://cloud.google.com/artifact-registry/docs)[^1]
 URL to the deployed application: [https://liatrio-interview-50186564575.us-west1.run.app/](https://liatrio-interview-50186564575.us-west1.run.app/)
 
