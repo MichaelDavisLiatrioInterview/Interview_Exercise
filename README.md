@@ -29,6 +29,6 @@ Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship progr
    * Add a field to the JSON output of your application and verify the change is deployed
 
 ## Deployment on Google Cloud's Artifact Registry
-This application was containerized and deployed on [Google Cloud's Artifact Registry](https://cloud.google.com/artifact-registry/docs)[^1]
+This application was containerized and deployed on [Google Cloud's Artifact Registry](https://cloud.google.com/artifact-registry/docs)<br>
 URL to the deployed application: [https://liatrio-interview-50186564575.us-west1.run.app/](https://liatrio-interview-50186564575.us-west1.run.app/)
 
