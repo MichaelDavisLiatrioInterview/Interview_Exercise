@@ -37,6 +37,8 @@ jobs:
     - name: push the docker image
       id: push-docker-image
       run: docker push miked7676/liatrio_dock:interview
+    - name: Authenticate docker for Google Cloud Push/Pull
+      run: gcloud auth configure-docker us-west1-docker.pkg.dev
     - name: Tag image for google cloud
       run: docker tag miked7676/liatrio_dock:interview us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
     - name: Push image to Artifact Registry
