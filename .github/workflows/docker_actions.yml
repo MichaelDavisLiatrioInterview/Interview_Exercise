@@ -39,7 +39,8 @@ jobs:
       run: docker push miked7676/liatrio_dock:interview
     - name: Tag image for google cloud
       run: docker tag miked7676/liatrio_dock:interview us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
-
+    - name: Push image to Artifact Registry
+      run: docker push us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
    
     - name: Deploy New Revision on Google Cloud
       run: gcloud run deploy liatrio-interview --image=us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview --region=us-west1
