@@ -1,6 +1,6 @@
 [![Liapp Docker Image CI](https://github.com/MichaelDavisLiatrioInterview/Interview_Exercise/actions/workflows/docker_actions.yml/badge.svg?branch=master)](https://github.com/MichaelDavisLiatrioInterview/Interview_Exercise/actions/workflows/docker_actions.yml)
 
-# Interview_Exercise
+# Interview Exercise
 Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship program to show their capablities.
 
 ## Tasks:
