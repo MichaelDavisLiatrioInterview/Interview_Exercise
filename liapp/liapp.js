@@ -10,6 +10,7 @@ const app = express()
 
 // Sets the port number to 8080. Server will listen here for incoming requests
 const port = 8080
+const date = new Date();
 
 
 // Defines route handler for HTTP GET requests made to root URL '/'
@@ -24,7 +25,8 @@ app.get('/', (req, res) => {
   const message =
   {
     "message": "My name is Michael Davis",
-    "timestamp": timestamp
+    "timestamp": timestamp,
+    "time since last update": date
   }
 
   const mini = JSON.stringify(message)
