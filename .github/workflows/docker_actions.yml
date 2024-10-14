@@ -28,3 +28,7 @@ jobs:
     - name: push the docker image
       id: push-docker-image
       run: docker push miked7676/liapp:interview
+    - name: Google Cloud Login
+      uses: google-github-actions/auth@v2
+      with:
+        credentials_json: ${{secrets.GOOGLE_CREDENTALS}}
