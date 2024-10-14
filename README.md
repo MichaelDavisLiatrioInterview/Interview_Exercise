@@ -4,27 +4,27 @@
 Exercise given by Liatrio to allow candidates for Liatrio's apprenticeship program to show their capablities.
 
 ## Tasks:
-###1. Github Repository
+### 1. Github Repository
    * Create a public Github repository
    * Share repository
-###2. Node.js Applicaton
+### 2. Node.js Applicaton
    * Install Node.js and use Express.js to create a simple web application
    * Web application will return a JSON object that shows the following
        - "message": "My name is ___",
            - The blank space will display the name of the person who undertakes the exercise
        - "timestamp": 12312344
            - timestamp should be dynamcally generated
-###3. Docker Containerization
+### 3. Docker Containerization
    * Write a Dockerfile that will build and run your application.
    * Make sure Dockerfile is hosted in the repository.
-###4. GitHub Actions
+### 4. GitHub Actions
    * Create a GitHub Actions Workflow that:
       - Builds your application's Docker image
       - Verifies the application functionality using Liatrio's GitHub [apprentce-action](https://github.com/liatrio/github-actions/tree/master/apprentice-action)
       - Pushes image to Docker Hub
-###5. Cloud Deployment
+### 5. Cloud Deployment
    * Deploy your app to a cloud platform of your choice using the image from Docker Hub.
-###6. Deployment Workflow (extra credit)
+### 6. Deployment Workflow (extra credit)
    * Add a GitHub Workflow which automatically deploys your application to the cloud platform when changes are made to the main branch of your repository
    * Add a field to the JSON output of your application and verify the change is deployed
 
