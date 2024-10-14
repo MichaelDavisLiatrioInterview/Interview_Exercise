@@ -25,10 +25,18 @@ jobs:
     - name: run tests
       id: liatriotests
       uses: liatrio/github-actions/apprentice-action@0b41561cca6822cc8d880fe0e49e7807a41fdf91
-    - name: push the docker image
-      id: push-docker-image
-      run: docker push miked7676/liapp:interview
     - name: Google Cloud Login
       uses: google-github-actions/auth@v2
       with:
         credentials_json: ${{secrets.GOOGLE_CREDENTIALS}}
+    - name: Set Up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v2
+      with:
+        version: '>= 363.0.0'
+    - name: Tag Docker Image Created in Workflow
+      run: docker tag miked7676/liapp:interview us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liapp:interview
+    - name: push the docker image
+      id: push-docker-image
+      run: docker push us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liapp:interview
+    - name: Deploy New Revision on Google Cloud
+      run: gcloud run deploy liatrio-interview --image=push us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liapp:interview --region=us-west1
