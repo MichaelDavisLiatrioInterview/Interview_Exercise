@@ -31,4 +31,4 @@ jobs:
     - name: Google Cloud Login
       uses: google-github-actions/auth@v2
       with:
-        credentials_json: ${{secrets.GOOGLE_CREDENTALS}}
+        credentials_json: ${{secrets.GOOGLE_CREDENTIALS}}
