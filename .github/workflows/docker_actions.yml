@@ -25,26 +25,26 @@ jobs:
         
     - name: Build the Docker image
       id: docker-image
-      run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liatrio_dock:interview
+      run: docker build ./liapp --file ./liapp/Dockerfile --tag ${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview
 
     - name: Run Container
       id: docker-container
       run:
-        docker run -d -p 80:8080 miked7676/liatrio_dock:interview
+        docker run -d -p 80:8080 ${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview
     - name: run tests
       id: liatriotests
       uses: liatrio/github-actions/apprentice-action@0b41561cca6822cc8d880fe0e49e7807a41fdf91
     - name: push the docker image
       id: push-docker-image
-      run: docker push miked7676/liatrio_dock:interview
+      run: docker push ${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview
     - name: Authenticate docker for Google Cloud Push/Pull
       run: gcloud auth configure-docker us-west1-docker.pkg.dev
     - name: Enable cloud run API
       run: gcloud services enable run.googleapis.com
     - name: Tag image for google cloud
-      run: docker tag miked7676/liatrio_dock:interview us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
+      run: docker tag ${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview us-west1-docker.pkg.dev/liatrioapprentice/liapp/${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview
     - name: Push image to Artifact Registry
-      run: docker push us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
+      run: docker push us-west1-docker.pkg.dev/liatrioapprentice/liapp/${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview
    
     - name: Deploy New Revision on Google Cloud
-      run: gcloud run deploy liatrio-interview --image=us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview --region=us-west1
+      run: gcloud run deploy liatrio-interview --image=us-west1-docker.pkg.dev/liatrioapprentice/liapp/${{secrets.DOCKERHUB_USERNAME}}/liatrio_dock:interview --region=us-west1
