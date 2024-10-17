@@ -11,7 +11,7 @@ const app = express()
 
 // Sets the port number to 8080. Server will listen here for incoming requests
 const port = 8080
-//const date = new Date();
+
 const lastUpdate = (path) =>
 {
   const stats = fs.statSync(path)
