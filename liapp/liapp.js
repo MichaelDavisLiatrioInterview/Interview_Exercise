@@ -1,7 +1,7 @@
 // Import the express module. Minimal and flexible Node.js web app framework.
 // require() loads express library for use in application
 const express = require('express')
-const fs = require('fs')
+
 
 // Express function is a top-level function exported by the express module
 // app represents the web application. Provides methods for defining routes
@@ -12,25 +12,6 @@ const app = express()
 // Sets the port number to 8080. Server will listen here for incoming requests
 const port = 8080
 
-const lastUpdate = (path) =>
-{
-  const stats = fs.statSync(path)
-  return stats.mtime
-}
-const date = lastUpdate('./liapp.js')
-
-
-let format = {
-  year: "numeric",
-  month: "numeric",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-  second: "numeric",
-  timeZone: "America/Los_Angeles",
-};
-
-const up_date = Intl.DateTimeFormat("en-US", format).format(date);
 
 
 // Defines route handler for HTTP GET requests made to root URL '/'
@@ -46,7 +27,7 @@ app.get('/', (req, res) => {
   {
     "message": "My name is Michael Davis",
     "timestamp": timestamp,
-    "time since last update": up_date,
+    "Hello Audience!": "This is how Google Cloud deploys!"
   }
 
   const mini = JSON.stringify(message)
