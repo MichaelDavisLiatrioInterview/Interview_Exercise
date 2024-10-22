@@ -1,8 +1,8 @@
-
+# base image Dockefile will be built upon
 FROM node:20.18.0
 
 
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 
 
 WORKDIR /liapp
