@@ -6,14 +6,21 @@ on:
 
 jobs:
   build:
+      # The virtual machine to be used for workflow
     runs-on: ubuntu-22.04
     steps:
+      # checkout fetches branch or commit from repository
+      # so steps after can access the code
     - uses: actions/checkout@v4
+
+      # Logs the virtual machine into GitHub
     - name: login to docker hub
       uses: docker/login-action@v3
       with:
         username: ${{secrets.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+      # Google Cloud login uses Google uses service account key file
     - name: Google Cloud Login
       uses: google-github-actions/auth@8254fb75a33b976a221574d287e93919e6a36f70
       with:
@@ -23,28 +30,39 @@ jobs:
       with:
         version: '>= 363.0.0'
         
+      # Docker commands
     - name: Build the Docker image
       id: docker-image
       run: docker build ./liapp --file ./liapp/Dockerfile --tag miked7676/liatrio_dock:interview
 
+      # Running container to pass tests
     - name: Run Container
       id: docker-container
       run:
         docker run -d -p 80:8080 miked7676/liatrio_dock:interview
+
     - name: run tests
       id: liatriotests
       uses: liatrio/github-actions/apprentice-action@0b41561cca6822cc8d880fe0e49e7807a41fdf91
+
+      # push image to Docker Hub
     - name: push the docker image
       id: push-docker-image
       run: docker push miked7676/liatrio_dock:interview
+
+      # Authentication for machine and Docker to use Google Cloud
     - name: Authenticate docker for Google Cloud Push/Pull
       run: gcloud auth configure-docker us-west1-docker.pkg.dev
+
     - name: Enable cloud run API
       run: gcloud services enable run.googleapis.com
+
+      # Tag Container Image then Push to Google Cloud Artifact Registry
     - name: Tag image for google cloud
       run: docker tag miked7676/liatrio_dock:interview us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
     - name: Push image to Artifact Registry
       run: docker push us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview
    
+      # Using Google Cloud Run to handle Deployment of Container Image into a Web Service
     - name: Deploy New Revision on Google Cloud
       run: gcloud run deploy liatrio-interview --image=us-west1-docker.pkg.dev/liatrioapprentice/liapp/miked7676/liatrio_dock:interview --region=us-west1
