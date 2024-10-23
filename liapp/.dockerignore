@@ -1,6 +1,18 @@
-node_modules
-npm-debug.log
-build
-.git
-*.md
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Environment Variables
+.env
+
+# Exclude .git/, a version control directory
+# not needed inside of the image
+.git/
+
+# a version control file used for github
+# not for the image
 .gitignore
