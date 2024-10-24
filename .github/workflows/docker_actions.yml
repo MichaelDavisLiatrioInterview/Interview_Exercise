@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-      # The virtual machine to be used for workflow
+      # The virtual machine/runner to be used for workflow
     runs-on: ubuntu-22.04
     steps:
       # checkout fetches branch or commit from repository
