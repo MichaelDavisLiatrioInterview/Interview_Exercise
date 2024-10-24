@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   {
     "message": "My name is Michael Davis",
     "timestamp": timestamp,
-    "Hey Liatrio": "How are you today?"
+    "Thank you for watching!": "Questions?"
   }
 
   const mini = JSON.stringify(message)
